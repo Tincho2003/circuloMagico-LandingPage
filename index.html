@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Círculo Mágico — Escuela y Tienda de Magia | Buenos Aires</title>
+  <meta name="description" content="Escuela y tienda de magia en Caballito, Buenos Aires. Clases presenciales, online y videocurso. Más de 10 años formando magos.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <!-- GLightbox -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.3.0/css/glightbox.min.css">
+
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+  <!-- ==============================
+       INTRO SCREEN — solo primer ingreso
+  ============================== -->
+  <div id="intro-screen" aria-label="Entrar al sitio" tabindex="0">
+
+    <!-- Fondo oscuro (recibe micro-zoom) -->
+    <div id="intro-bg"></div>
+
+    <!-- Partículas canvas -->
+    <canvas id="intro-canvas"></canvas>
+
+    <!-- Glow anular -->
+    <div class="intro-glow"></div>
+
+    <!-- Haces de luz -->
+    <div class="intro-beams">
+      <div class="intro-beam intro-beam-l"></div>
+      <div class="intro-beam intro-beam-r"></div>
+    </div>
+
+    <!-- Logo -->
+    <div class="intro-content" id="intro-content">
+      <div class="intro-logo-wrap" id="intro-logo-wrap">
+        <img src="logo/1.png" alt="Círculo Mágico" class="intro-logo" id="intro-logo">
+      </div>
+    </div>
+
+    <!-- 4 Ases — aparecen tras el aplauso -->
+    <div id="intro-cards" aria-hidden="true">
+
+      <!-- Picas ♠ -->
+      <div class="intro-card" data-suit="spades">
+        <svg viewBox="0 0 60 86" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.8" y="0.8" width="58.4" height="84.4" rx="6" fill="#0c0c1a" stroke="#C8A84B" stroke-width="1.4"/>
+          <text x="5.5" y="17"  font-size="13" font-family="Georgia,serif" fill="#C8A84B" font-weight="bold">A</text>
+          <text x="5"   y="29"  font-size="11" font-family="Georgia,serif" fill="#d8d8d8">♠</text>
+          <text x="30"  y="52"  font-size="35" font-family="Georgia,serif" fill="#e2e2e2" text-anchor="middle" dominant-baseline="central">♠</text>
+          <text x="54.5" y="75" font-size="13" font-family="Georgia,serif" fill="#C8A84B" font-weight="bold" text-anchor="end">A</text>
+        </svg>
+      </div>
+
+      <!-- Corazones ♥ -->
+      <div class="intro-card" data-suit="hearts">
+        <svg viewBox="0 0 60 86" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.8" y="0.8" width="58.4" height="84.4" rx="6" fill="#0c0c1a" stroke="#C8A84B" stroke-width="1.4"/>
+          <text x="5.5" y="17"  font-size="13" font-family="Georgia,serif" fill="#c0192c" font-weight="bold">A</text>
+          <text x="5"   y="29"  font-size="11" font-family="Georgia,serif" fill="#c0192c">♥</text>
+          <text x="30"  y="52"  font-size="35" font-family="Georgia,serif" fill="#c0192c" text-anchor="middle" dominant-baseline="central">♥</text>
+          <text x="54.5" y="75" font-size="13" font-family="Georgia,serif" fill="#c0192c" font-weight="bold" text-anchor="end">A</text>
+        </svg>
+      </div>
+
+      <!-- Diamantes ♦ -->
+      <div class="intro-card" data-suit="diamonds">
+        <svg viewBox="0 0 60 86" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.8" y="0.8" width="58.4" height="84.4" rx="6" fill="#0c0c1a" stroke="#C8A84B" stroke-width="1.4"/>
+          <text x="5.5" y="17"  font-size="13" font-family="Georgia,serif" fill="#c0192c" font-weight="bold">A</text>
+          <text x="5"   y="29"  font-size="11" font-family="Georgia,serif" fill="#c0192c">♦</text>
+          <text x="30"  y="52"  font-size="35" font-family="Georgia,serif" fill="#c0192c" text-anchor="middle" dominant-baseline="central">♦</text>
+          <text x="54.5" y="75" font-size="13" font-family="Georgia,serif" fill="#c0192c" font-weight="bold" text-anchor="end">A</text>
+        </svg>
+      </div>
+
+      <!-- Tréboles ♣ -->
+      <div class="intro-card" data-suit="clubs">
+        <svg viewBox="0 0 60 86" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.8" y="0.8" width="58.4" height="84.4" rx="6" fill="#0c0c1a" stroke="#C8A84B" stroke-width="1.4"/>
+          <text x="5.5" y="17"  font-size="13" font-family="Georgia,serif" fill="#C8A84B" font-weight="bold">A</text>
+          <text x="5"   y="29"  font-size="11" font-family="Georgia,serif" fill="#d8d8d8">♣</text>
+          <text x="30"  y="52"  font-size="35" font-family="Georgia,serif" fill="#e2e2e2" text-anchor="middle" dominant-baseline="central">♣</text>
+          <text x="54.5" y="75" font-size="13" font-family="Georgia,serif" fill="#C8A84B" font-weight="bold" text-anchor="end">A</text>
+        </svg>
+      </div>
+
+    </div><!-- /#intro-cards -->
+
+    <!-- CTA -->
+    <div class="intro-cta" id="intro-cta">
+      <div class="intro-cta-line"></div>
+      <span>ENTRAR</span>
+    </div>
+
+  </div><!-- /#intro-screen -->
+
+  <!-- ==============================
+       MANOS — fuera del intro-screen para
+       animación GSAP independiente
+  ============================== -->
+  <div id="hand-left" class="intro-hand intro-hand-left" aria-hidden="true">
+    <svg viewBox="0 0 220 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Antebrazo -->
+      <path d="M58 340 C54 298 52 268 55 238 C58 210 66 192 78 176 C85 166 94 158 104 152"
+            stroke="#D0D0D0" stroke-width="2.4" stroke-linecap="round" fill="none" opacity="0.7"/>
+      <path d="M80 340 C78 300 78 272 82 244 C86 218 95 200 107 185 C114 175 122 167 132 161"
+            stroke="#D0D0D0" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.5"/>
+      <!-- Palma -->
+      <path d="M104 152 C96 145 92 134 94 122 C96 110 104 103 115 101 C126 100 135 105 140 115 C144 124 143 135 138 144 C133 152 125 157 116 157 C108 157 101 155 104 152 Z"
+            stroke="#D8D8D8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.92"/>
+      <!-- Índice -->
+      <path d="M115 101 C116 89 118 77 121 66 C123 57 127 50 132 47 C136 44 141 46 143 52 C145 59 143 70 139 82 C136 92 130 102 124 107"
+            stroke="#D8D8D8" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.9" class="finger-index-l"/>
+      <!-- Medio -->
+      <path d="M126 101 C128 88 130 75 132 63 C134 52 138 43 143 40 C148 38 153 41 154 48 C156 56 153 68 149 80 C145 91 139 102 133 107"
+            stroke="#D8D8D8" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.9" class="finger-mid-l"/>
+      <!-- Anular -->
+      <path d="M136 106 C138 94 140 82 141 71 C142 61 143 53 147 49 C150 46 155 48 157 55 C159 62 157 74 154 85 C151 95 146 105 140 110"
+            stroke="#D8D8D8" stroke-width="1.9" stroke-linecap="round" fill="none" opacity="0.85" class="finger-ring-l"/>
+      <!-- Meñique -->
+      <path d="M141 111 C143 101 144 92 145 83 C146 75 147 68 150 65 C153 62 157 64 159 70 C161 77 159 87 156 96 C153 104 148 112 143 116"
+            stroke="#D8D8D8" stroke-width="1.7" stroke-linecap="round" fill="none" opacity="0.8" class="finger-pinky-l"/>
+      <!-- Pulgar -->
+      <path d="M102 142 C91 143 82 137 79 128 C76 120 79 111 87 107 C94 104 102 107 106 114 C110 121 109 132 104 139"
+            stroke="#D8D8D8" stroke-width="1.9" stroke-linecap="round" fill="none" opacity="0.85" class="finger-thumb-l"/>
+    </svg>
+  </div>
+
+  <div id="hand-right" class="intro-hand intro-hand-right" aria-hidden="true">
+    <svg viewBox="0 0 220 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Antebrazo (espejado) -->
+      <path d="M162 340 C166 298 168 268 165 238 C162 210 154 192 142 176 C135 166 126 158 116 152"
+            stroke="#D0D0D0" stroke-width="2.4" stroke-linecap="round" fill="none" opacity="0.7"/>
+      <path d="M140 340 C142 300 142 272 138 244 C134 218 125 200 113 185 C106 175 98 167 88 161"
+            stroke="#D0D0D0" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.5"/>
+      <!-- Palma (espejada) -->
+      <path d="M116 152 C124 145 128 134 126 122 C124 110 116 103 105 101 C94 100 85 105 80 115 C76 124 77 135 82 144 C87 152 95 157 104 157 C112 157 119 155 116 152 Z"
+            stroke="#D8D8D8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.92"/>
+      <!-- Índice -->
+      <path d="M105 101 C104 89 102 77 99 66 C97 57 93 50 88 47 C84 44 79 46 77 52 C75 59 77 70 81 82 C84 92 90 102 96 107"
+            stroke="#D8D8D8" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.9" class="finger-index-r"/>
+      <!-- Medio -->
+      <path d="M94 101 C92 88 90 75 88 63 C86 52 82 43 77 40 C72 38 67 41 66 48 C64 56 67 68 71 80 C75 91 81 102 87 107"
+            stroke="#D8D8D8" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.9" class="finger-mid-r"/>
+      <!-- Anular -->
+      <path d="M84 106 C82 94 80 82 79 71 C78 61 77 53 73 49 C70 46 65 48 63 55 C61 62 63 74 66 85 C69 95 74 105 80 110"
+            stroke="#D8D8D8" stroke-width="1.9" stroke-linecap="round" fill="none" opacity="0.85" class="finger-ring-r"/>
+      <!-- Meñique -->
+      <path d="M79 111 C77 101 76 92 75 83 C74 75 73 68 70 65 C67 62 63 64 61 70 C59 77 61 87 64 96 C67 104 72 112 77 116"
+            stroke="#D8D8D8" stroke-width="1.7" stroke-linecap="round" fill="none" opacity="0.8" class="finger-pinky-r"/>
+      <!-- Pulgar -->
+      <path d="M118 142 C129 143 138 137 141 128 C144 120 141 111 133 107 C126 104 118 107 114 114 C110 121 111 132 116 139"
+            stroke="#D8D8D8" stroke-width="1.9" stroke-linecap="round" fill="none" opacity="0.85" class="finger-thumb-r"/>
+    </svg>
+  </div>
+
+  <!-- Partículas mágicas (posicionadas por JS) -->
+  <div id="intro-particles" aria-hidden="true"></div>
+
+  <!-- ==============================
+       CONTENIDO DEL SITIO
+  ============================== -->
+  <div id="site-wrapper">
+
+  <!-- ==============================
+       HEADER
+  ============================== -->
+  <header id="header">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="logo/2.png" alt="Círculo Mágico">
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html" class="active">Inicio</a>
+        <a href="#cursos">Cursos</a>
+        <a href="galeria.html">Galería</a>
+        <a href="planes.html">Planes</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Inicio</a>
+    <a href="#cursos">Cursos</a>
+    <a href="galeria.html">Galería</a>
+    <a href="planes.html">Planes</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+  <!-- ==============================
+       SPLASH — PRIMERA PANTALLA
+  ============================== -->
+  <section id="splash">
+    <div class="stars-canvas"></div>
+    <div class="splash-glow"></div>
+
+    <div class="splash-inner">
+      <img src="logo/1.png" alt="Círculo Mágico" class="splash-logo">
+      <p class="splash-tagline">
+        <span class="splash-dot">✦</span>
+        Escuela &amp; Tienda de Magia · Caballito, Buenos Aires
+        <span class="splash-dot">✦</span>
+      </p>
+    </div>
+
+    <div class="splash-scroll">
+      <div class="scroll-line"></div>
+      <span>Descubrí</span>
+    </div>
+  </section>
+
+  <!-- ==============================
+       HERO — SEGUNDA PANTALLA
+  ============================== -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow">El arte del ilusionismo</div>
+
+        <h1 class="hero-title">
+          El Arte de la<br>
+          <span class="line-gold">Magia e Ilusionismo</span>
+        </h1>
+
+        <p class="hero-desc">
+          Aprendé magia de cerca, de salón y escena. Desarrollá tu comunicación,
+          oratoria y presencia escénica en el Barrio de Caballito, Buenos Aires.
+        </p>
+
+        <div class="hero-actions">
+          <a href="planes.html" class="btn btn-gold">
+            <i class="fas fa-hat-wizard"></i> Ver Cursos
+          </a>
+          <a href="https://api.whatsapp.com/send?phone=+5491152638510&text=Hola!%20Me%20interesar%C3%ADa%20reservar%20una%20vacante%20para%20el%20curso%20de%20Magia!" target="_blank" class="btn btn-ghost">
+            <i class="fab fa-whatsapp"></i> Reservá tu lugar
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       PROPUESTA / FEATURES
+  ============================== -->
+  <section id="features" class="section-sm">
+    <div class="container">
+      <div class="features-grid">
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3>Escuela de Magia</h3>
+          <p>Clases presenciales en grupos reducidos (máx. 10 alumnos) en nuestro espacio de Caballito. Aprendé magia de cerca, de salón y escena.</p>
+        </div>
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="feature-icon"><i class="fas fa-laptop"></i></div>
+          <h3>Videocurso Online</h3>
+          <p>Más de 100 videos con filmación multiángulo. Accedé desde cualquier dispositivo, a tu ritmo y con acceso de por vida.</p>
+        </div>
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-icon"><i class="fas fa-store"></i></div>
+          <h3>Tienda de Magia</h3>
+          <p>Productos, accesorios y efectos mágicos. Asesoramiento personalizado para magos de todos los niveles.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       ABOUT
+  ============================== -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="about-img-wrap" data-aos="fade-right">
+          <img src="images/ClasesdeMagia.jpg" alt="Clases de Magia" class="about-img">
+          <div class="about-badge">
+            <div class="number" data-count="10" data-suffix="+">10+</div>
+            <div class="label">Años formando magos</div>
+          </div>
+        </div>
+
+        <div data-aos="fade-left">
+          <div class="tag">Aprender Magia</div>
+          <h2 class="section-title">Más que un truco,<br><span class="gold">un arte completo</span></h2>
+          <div class="divider"></div>
+          <p style="color: var(--text-muted); margin-bottom: 24px;">
+            Las clases de ilusionismo son dictadas por profesionales con años de experiencia en escenarios.
+            Al ejercitar la coordinación de todos los elementos de la magia conjuntamente, tu comunicación
+            y oratoria mejorarán mientras te sorprendés a vos mismo.
+          </p>
+          <p style="color: var(--text-muted); margin-bottom: 32px;">
+            Aprenderás magia de cerca, de salón y escena, cartomagia, presentación mágica, mentalismo y
+            mucho más. Cada alumno recibe atención personalizada dentro del grupo.
+          </p>
+
+          <div class="about-features">
+            <div class="about-feat">
+              <i class="fas fa-check-circle"></i>
+              <div>
+                <strong>Cupos Limitados</strong>
+                <p>Máximo 10 alumnos por clase para garantizar atención personalizada.</p>
+              </div>
+            </div>
+            <div class="about-feat">
+              <i class="fas fa-check-circle"></i>
+              <div>
+                <strong>Apuntes Incluidos</strong>
+                <p>Material exclusivo de la escuela para reforzar lo aprendido.</p>
+              </div>
+            </div>
+            <div class="about-feat">
+              <i class="fas fa-check-circle"></i>
+              <div>
+                <strong>Diplomas</strong>
+                <p>Certificado al finalizar cada nivel del curso.</p>
+              </div>
+            </div>
+            <div class="about-feat">
+              <i class="fas fa-check-circle"></i>
+              <div>
+                <strong>Minimagos</strong>
+                <p>Clases especiales para los más chicos desde los 8 años.</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 36px;">
+            <a href="planes.html" class="btn btn-gold">Ver Planes <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       CURSOS
+  ============================== -->
+  <section id="cursos" class="section">
+    <div class="container">
+      <div class="section-head center">
+        <div class="tag">Lo que ofrecemos</div>
+        <h2 class="section-title">Nuestros <span class="gold">Cursos</span></h2>
+        <div class="divider"></div>
+        <p class="section-sub">Elegí la modalidad que mejor se adapte a tu ritmo y objetivos.</p>
+      </div>
+
+      <div class="cursos-grid">
+
+        <div class="curso-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="curso-img">
+            <img src="fotos/galeria/aprendermagia5.jpg" alt="Clases Grupales de Magia">
+          </div>
+          <div class="curso-body">
+            <div class="curso-tag">Presencial · Caballito</div>
+            <h3>Clases Grupales</h3>
+            <p>Grupos de hasta 10 alumnos, 1 vez por semana. Aprendé en un ambiente divertido y colaborativo con otros magos en formación.</p>
+            <a href="planes.html" class="curso-link">Ver plan <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="curso-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="curso-img">
+            <img src="fotos/galeria/aprendermagia12.jpg" alt="Clases Particulares">
+          </div>
+          <div class="curso-body">
+            <div class="curso-tag">Presencial · 1 a 1</div>
+            <h3>Clases Particulares</h3>
+            <p>Atención 100% personalizada. Avanzás a tu propio ritmo con un programa adaptado específicamente a tus intereses y nivel.</p>
+            <a href="contacto.html" class="curso-link">Consultar <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="curso-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="curso-img">
+            <img src="fotos/galeria/aprendermagia20.jpg" alt="Curso en Videos">
+          </div>
+          <div class="curso-body">
+            <div class="curso-tag">Online · A tu ritmo</div>
+            <h3>Videocurso Completo</h3>
+            <p>Más de 100 videos con filmación multiángulo. Estudiá desde tu PC, tablet o celular con acceso de por vida al material.</p>
+            <a href="planes.html" class="curso-link">Ver plan <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="curso-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="curso-img">
+            <img src="fotos/galeria/aprendermagia8.jpg" alt="Minimagos">
+          </div>
+          <div class="curso-body">
+            <div class="curso-tag">Presencial · Niños</div>
+            <h3>Minimagos</h3>
+            <p>Clases especiales para los más chicos. Un espacio único donde los niños desarrollan creatividad, confianza y habilidades escénicas.</p>
+            <a href="contacto.html" class="curso-link">Consultar <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       GALERÍA PREVIEW
+  ============================== -->
+  <section id="galeria-preview" class="section">
+    <div class="container">
+      <div class="section-head center">
+        <div class="tag">Momentos en Clase</div>
+        <h2 class="section-title">La <span class="gold">Magia</span> en Acción</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="gallery-grid" data-aos="fade-up">
+
+        <div class="gallery-item featured" data-href="fotos/galeria/aprendermagia1.jpg" data-gallery="preview">
+          <img src="fotos/galeria/aprendermagia1.jpg" alt="Entrega de Diplomas">
+          <div class="gallery-overlay">
+            <span><i class="fas fa-expand"></i> Entrega de Diplomas</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-href="fotos/galeria/aprendermagia3.jpg" data-gallery="preview">
+          <img src="fotos/galeria/aprendermagia3.jpg" alt="Magia de Cerca">
+          <div class="gallery-overlay">
+            <span><i class="fas fa-expand"></i> Magia de Cerca</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-href="fotos/galeria/aprendermagia7.jpg" data-gallery="preview">
+          <img src="fotos/galeria/aprendermagia7.jpg" alt="Clase de Magia">
+          <div class="gallery-overlay">
+            <span><i class="fas fa-expand"></i> Clase de Magia</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-href="fotos/galeria/aprendermagia11.jpg" data-gallery="preview">
+          <img src="fotos/galeria/aprendermagia11.jpg" alt="Manipulación">
+          <div class="gallery-overlay">
+            <span><i class="fas fa-expand"></i> Manipulación</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-href="fotos/galeria/aprendermagia15.jpg" data-gallery="preview">
+          <img src="fotos/galeria/aprendermagia15.jpg" alt="Gala de Fin de Año">
+          <div class="gallery-overlay">
+            <span><i class="fas fa-expand"></i> Gala de Fin de Año</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="gallery-more">
+        <a href="galeria.html" class="btn btn-outline">
+          <i class="fas fa-images"></i> Ver Galería Completa
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       PLANES (PREVIEW)
+  ============================== -->
+  <section id="planes" class="section">
+    <div class="container">
+      <div class="section-head center">
+        <div class="tag">Precios</div>
+        <h2 class="section-title">Elegí tu <span class="gold">Plan</span></h2>
+        <div class="divider"></div>
+        <p class="section-sub">Todos los planes incluyen apuntes de magia y cupos limitados para garantizar calidad.</p>
+      </div>
+
+      <div class="planes-grid">
+
+        <div class="plan-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="plan-header">
+            <h3>Clases Particulares</h3>
+            <div class="plan-unavailable">Consultar disponibilidad</div>
+          </div>
+          <div class="plan-body">
+            <ul class="plan-features">
+              <li><i class="fas fa-check"></i> <span>4 Clases Mensuales</span></li>
+              <li><i class="fas fa-check"></i> <span>1 Hora Semanal</span></li>
+              <li><i class="fas fa-check"></i> <span>Apuntes de Magia</span></li>
+              <li><i class="fas fa-check"></i> <span><strong>Clase personalizada 1 a 1</strong></span></li>
+            </ul>
+          </div>
+          <div class="plan-footer">
+            <a href="https://api.whatsapp.com/send?phone=+5491152638510&text=Hola!%20Me%20interesar%C3%ADa%20consultar%20sobre%20clases%20particulares!" target="_blank" class="btn btn-outline">
+              <i class="fab fa-whatsapp"></i> Consultar
+            </a>
+          </div>
+        </div>
+
+        <div class="plan-card featured" data-aos="fade-up" data-aos-delay="100">
+          <div class="plan-badge">Más popular</div>
+          <div class="plan-header">
+            <h3>Clases Grupales</h3>
+            <div class="plan-price">
+              <span class="currency">$</span>
+              <span class="amount">27.500</span>
+              <span class="period">/ mes</span>
+            </div>
+          </div>
+          <div class="plan-body">
+            <ul class="plan-features">
+              <li><i class="fas fa-check"></i> <span>4 Clases Mensuales</span></li>
+              <li><i class="fas fa-check"></i> <span>1:30 Hs Semanal</span></li>
+              <li><i class="fas fa-check"></i> <span>Apuntes de Magia</span></li>
+              <li><i class="fas fa-check"></i> <span><strong>Máx. 10 Alumnos</strong></span></li>
+            </ul>
+          </div>
+          <div class="plan-footer">
+            <a href="https://api.whatsapp.com/send?phone=+5491152638510&text=Hola!%20Me%20interesar%C3%ADa%20reservar%20una%20vacante%20para%20el%20curso%20presencial%20de%20Magia!" target="_blank" class="btn btn-gold">
+              <i class="fab fa-whatsapp"></i> ¡Lo Quiero!
+            </a>
+          </div>
+        </div>
+
+        <div class="plan-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="plan-header">
+            <h3>Videocurso Online</h3>
+            <div class="plan-price">
+              <span class="currency">$</span>
+              <span class="amount">50.000</span>
+              <span class="period">pago único</span>
+            </div>
+          </div>
+          <div class="plan-body">
+            <ul class="plan-features">
+              <li><i class="fas fa-check"></i> <span>PC, Tablet o Celular</span></li>
+              <li><i class="fas fa-check"></i> <span>+100 Videos</span></li>
+              <li><i class="fas fa-check"></i> <span>Filmación Multiángulo</span></li>
+              <li><i class="fas fa-check"></i> <span><strong>Acceso de por Vida</strong></span></li>
+            </ul>
+          </div>
+          <div class="plan-footer">
+            <a href="https://api.whatsapp.com/send?phone=+5491152638510&text=Hola!%20Me%20interesar%C3%ADa%20conseguir%20el%20videocurso!" target="_blank" class="btn btn-outline">
+              <i class="fab fa-whatsapp"></i> Lo Quiero
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="text-align:center; margin-top: 36px;">
+        <a href="planes.html" class="btn btn-ghost">Ver todos los detalles <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       UBICACIÓN
+  ============================== -->
+  <section id="ubicacion" class="section" style="background: var(--bg-2);">
+    <div class="container">
+      <div class="section-head">
+        <div class="tag">Dónde estamos</div>
+        <h2 class="section-title">Visitanos en <span class="gold">Caballito</span></h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="ubicacion-grid">
+
+        <div class="ubicacion-info" data-aos="fade-right">
+          <div class="info-item">
+            <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <h4>Dirección</h4>
+              <p>Felipe Vallese 1387<br>Barrio de Caballito, CABA</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="fab fa-whatsapp"></i></div>
+            <div>
+              <h4>WhatsApp</h4>
+              <p><a href="https://api.whatsapp.com/send?phone=+5491152638510" target="_blank">+54 9 11 5263-8510</a></p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="fas fa-clock"></i></div>
+            <div>
+              <h4>Horarios de Clases</h4>
+              <p>Consultá disponibilidad de turnos por WhatsApp</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="fab fa-facebook-f"></i></div>
+            <div>
+              <h4>Seguinos</h4>
+              <p><a href="http://www.facebook.com/escuelademagia" target="_blank">facebook.com/escuelademagia</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-embed">
+          <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-58.4661%2C-34.6242%2C-58.4421%2C-34.6082&amp;layer=mapnik&amp;marker=-34.6162346%2C-58.4541391" loading="lazy" title="Ubicación Círculo Mágico"></iframe>
+        </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       CTA FINAL
+  ============================== -->
+  <section id="cta" class="section">
+    <div class="container">
+      <div class="cta-inner" data-aos="fade-up">
+        <div class="tag">¿Listo para empezar?</div>
+        <h2>Reservá tu lugar <span class="gold">hoy</span></h2>
+        <p>Los cupos son limitados. Escribinos y te contamos todo sobre el próximo inicio de clases.</p>
+        <div class="cta-btns">
+          <a href="https://api.whatsapp.com/send?phone=+5491152638510&text=Hola!%20Me%20interesar%C3%ADa%20reservar%20una%20vacante%20para%20el%20curso%20de%20Magia!" target="_blank" class="btn btn-gold">
+            <i class="fab fa-whatsapp"></i> Escribir por WhatsApp
+          </a>
+          <a href="planes.html" class="btn btn-outline">
+            Ver Planes y Precios
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       FOOTER
+  ============================== -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="logo/2.png" alt="Círculo Mágico">
+          </a>
+          <p>Escuela y Tienda de Magia e Ilusionismo en Barrio Caballito, Buenos Aires.</p>
+          <div class="footer-socials">
+            <a href="http://www.facebook.com/escuelademagia" target="_blank" class="social-btn" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.youtube.com/channel/UCLMX6lHjRY2lW_AGMVo5qDQ" target="_blank" class="social-btn" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=+5491152638510" target="_blank" class="social-btn" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Escuela</h4>
+          <ul>
+            <li><a href="planes.html">Clases Grupales</a></li>
+            <li><a href="planes.html">Clases Particulares</a></li>
+            <li><a href="planes.html">Videocurso Online</a></li>
+            <li><a href="contacto.html">Minimagos</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Sitio</h4>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="galeria.html">Galería</a></li>
+            <li><a href="planes.html">Planes</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="https://api.whatsapp.com/send?phone=+5491152638510" target="_blank">WhatsApp</a></li>
+            <li><a href="http://www.facebook.com/escuelademagia" target="_blank">Facebook</a></li>
+            <li><a href="https://www.youtube.com/channel/UCLMX6lHjRY2lW_AGMVo5qDQ" target="_blank">YouTube</a></li>
+            <li><a href="#ubicacion">Cómo llegar</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Círculo Mágico — Escuela de Magia e Ilusionismo</p>
+        <p>Felipe Vallese 1387, Caballito, CABA</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flotante -->
+  <div class="wa-float">
+    <div class="wa-tooltip">¡Escribinos!</div>
+    <a href="https://api.whatsapp.com/send?phone=+5491152638510&text=Hola!%20Me%20interesa%20saber%20m%C3%A1s%20sobre%20los%20cursos%20de%20magia!" target="_blank" class="wa-btn" aria-label="WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  </div><!-- /#site-wrapper -->
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.3.0/js/glightbox.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

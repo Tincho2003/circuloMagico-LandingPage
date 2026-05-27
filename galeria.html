@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería — Círculo Mágico</title>
+  <meta name="description" content="Galería de fotos de las clases y eventos de Círculo Mágico, escuela de magia en Caballito, Buenos Aires.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.3.0/css/glightbox.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <style>
+    .gallery-full {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .gallery-full .gallery-item img { height: 190px; min-height: unset; }
+    .gallery-full .gallery-item.wide { grid-column: span 2; }
+    .gallery-full .gallery-item.wide img { height: 190px; }
+    .gallery-full .gallery-item.tall { grid-row: span 2; }
+    .gallery-full .gallery-item.tall img { height: 390px; }
+
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 40px;
+      justify-content: center;
+    }
+    .filter-btn {
+      padding: 8px 20px;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: 1.5px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      transition: all var(--transition);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      border-color: var(--red);
+      color: var(--red);
+      background: rgba(192, 25, 44, 0.08);
+    }
+
+    @media (max-width: 768px) {
+      .gallery-full { grid-template-columns: repeat(2, 1fr); }
+      .gallery-full .gallery-item.tall { grid-row: span 1; }
+      .gallery-full .gallery-item.tall img { height: 190px; }
+    }
+    @media (max-width: 480px) {
+      .gallery-full { grid-template-columns: repeat(2, 1fr); }
+      .gallery-full .gallery-item.wide { grid-column: span 2; }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="header" class="scrolled">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="logo/2.png" alt="Círculo Mágico">
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="index.html#cursos">Cursos</a>
+        <a href="galeria.html" class="active">Galería</a>
+        <a href="planes.html">Planes</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Inicio</a>
+    <a href="index.html#cursos">Cursos</a>
+    <a href="galeria.html">Galería</a>
+    <a href="planes.html">Planes</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="breadcrumb">
+          <a href="index.html">Inicio</a>
+          <span class="sep">›</span>
+          <span class="current">Galería</span>
+        </div>
+        <div class="tag">Momentos en clase</div>
+        <h1>La <span class="gold">Magia</span> en Acción</h1>
+        <div class="divider"></div>
+        <p>Fotos de nuestras clases, galas, eventos y momentos especiales en el Círculo Mágico.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA COMPLETA -->
+  <section class="section">
+    <div class="container">
+
+      <div class="filter-bar">
+        <button class="filter-btn active">Todas</button>
+        <button class="filter-btn">Clases</button>
+        <button class="filter-btn">Galas</button>
+        <button class="filter-btn">Close Up</button>
+      </div>
+
+      <div class="gallery-full" data-aos="fade-up">
+
+        <div class="gallery-item tall glightbox" href="fotos/galeria/aprendermagia1.jpg" data-gallery="galeria">
+          <img src="fotos/galeria/aprendermagia1.jpg" alt="Entrega de Diplomas">
+          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> Entrega de Diplomas</span></div>
+        </div>
+
+        <div class="gallery-item glightbox" href="fotos/galeria/aprendermagia2.jpg" data-gallery="galeria">
+          <img src="fotos/galeria/aprendermagia2.jpg" alt="Magia y Ritmo">
+          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> Magia y Ritmo</span></div>
+        </div>
+
+        <div class="gallery-item glightbox" href="fotos/galeria/aprendermagia3.jpg" data-gallery="galeria">
+          <img src="fotos/galeria/aprendermagia3.jpg" alt="Clase de Magia">
+          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> Clase de Magia</span></div>
+        </div>
+
+        <div class="gallery-item wide glightbox" href="fotos/galeria/aprendermagia4.jpg" data-gallery="galeria">
+          <img src="fotos/galeria/aprendermagia4.jpg" alt="Levitación de Alumno">
+          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> Levitación de Alumno</span></div>
+        </div>
+
+        <div class="gallery-item glightbox" href="fotos/galeria/aprendermagia5.jpg" data-gallery="galeria">
+          <img src="fotos/galeria/aprendermagia5.jpg" alt="Magia de Cerca">
+          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> Magia de Cerca</span></div>
+        </div>
+
+        <div class="gallery-item glightbox" href="fotos/galeria/aprendermagia6.jpg" data-gallery="galeria">
+          <img src="fotos/galeria/aprendermagia6.jpg" alt="Clase Grupal">
+          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> Clase Grupal</span></div>
+        </div>
+
+        <div class="gallery-item glightbox" href="fotos/galeria/aprendermagia7.jpg" data-gallery="galeria">
+          <img src="fotos/galeria/aprendermagia7.jpg" alt="Sombras Chinas">
+          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> Sombras Chinas</span></div>
+        </div>
+
+        <div class="gallery-item glightbox" href="fotos/galeria/aprendermagia8.jpg" data-gallery="galeria">
+          <img src="fotos/galeria/aprendermagia8.jpg" alt="Divirtiéndonos en Clase">
+          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> Divirtiéndonos</span></div>
+        </div>
+
+        <div class="gallery-item wide glightbox" href="fotos/galeria/aprendermagia9.jpg" data-gallery="galeria">
+          <img src="fotos/galeria/aprendermagia9.jpg" alt="Conferencia">
+          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> Conferencia de Roberto</span></div>
+        </div>
+
+        <div class="gallery-item glightbox" href="fotos/galeria/aprendermagia10.jpg" data-gallery="galeria">
+          <img src="fotos/galeria/aprendermagia10.jpg" alt="Evento de Cierre">
+          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> Evento de Cierre</span></div>
+        </div>
+
+        <div class="gallery-item tall glightbox" href="fotos/galeria/aprendermagia11.jpg" data-gallery="galeria">
+          <img src="fotos/galeria/aprendermagia11.jpg" alt="Gala de Fin de Año">
+          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> Gala de Fin de Año</span></div>
+        </div>
+
+        <div class="gallery-item glightbox" href="fotos/galeria/aprendermagia12.jpg" data-gallery="galeria">
+          <img src="fotos/galeria/aprendermagia12.jpg" alt="Manipulación">
+          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> Manipulación</span></div>
+        </div>
+
+        <div class="gallery-item glightbox" href="fotos/galeria/aprendermagia13.jpg" data-gallery="galeria">
+          <img src="fotos/galeria/aprendermagia13.jpg" alt="Minimagos">
+          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> Minimagos</span></div>
+        </div>
+
+        <div class="gallery-item glightbox" href="fotos/galeria/aprendermagia14.jpg" data-gallery="galeria">
+          <img src="fotos/galeria/aprendermagia14.jpg" alt="Jugando con Fuego">
+          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> Jugando con Fuego</span></div>
+        </div>
+
+        <div class="gallery-item glightbox" href="fotos/galeria/aprendermagia15.jpg" data-gallery="galeria">
+          <img src="fotos/galeria/aprendermagia15.jpg" alt="Atención Personalizada">
+          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> Atención Personalizada</span></div>
+        </div>
+
+        <div class="gallery-item wide glightbox" href="fotos/galeria/aprendermagia16.jpg" data-gallery="galeria">
+          <img src="fotos/galeria/aprendermagia16.jpg" alt="Tienda de Magia">
+          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> Tienda de Magia</span></div>
+        </div>
+
+        <div class="gallery-item glightbox" href="fotos/galeria/aprendermagia17.jpg" data-gallery="galeria">
+          <img src="fotos/galeria/aprendermagia17.jpg" alt="Show de Magia">
+          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> Show de Magia</span></div>
+        </div>
+
+        <div class="gallery-item glightbox" href="fotos/galeria/aprendermagia18.jpg" data-gallery="galeria">
+          <img src="fotos/galeria/aprendermagia18.jpg" alt="LEINAD">
+          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> LEINAD</span></div>
+        </div>
+
+        <div class="gallery-item glightbox" href="fotos/galeria/aprendermagia19.jpg" data-gallery="galeria">
+          <img src="fotos/galeria/aprendermagia19.jpg" alt="Clase de Close Up">
+          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> Clase de Close Up</span></div>
+        </div>
+
+        <div class="gallery-item glightbox" href="fotos/galeria/aprendermagia20.jpg" data-gallery="galeria">
+          <img src="fotos/galeria/aprendermagia20.jpg" alt="Escuela de Magia">
+          <div class="gallery-overlay"><span><i class="fas fa-expand"></i> Escuela de Magia</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" class="section">
+    <div class="container">
+      <div class="cta-inner" data-aos="fade-up">
+        <div class="tag">¿Querés ser parte?</div>
+        <h2>Sumате al <span class="gold">Círculo</span></h2>
+        <p>Reservá tu lugar y empezá a crear tus propios momentos mágicos.</p>
+        <div class="cta-btns">
+          <a href="https://api.whatsapp.com/send?phone=+5491152638510&text=Hola!%20Vi%20la%20galer%C3%ADa%20y%20me%20interesar%C3%ADa%20reservar%20una%20vacante!" target="_blank" class="btn btn-gold">
+            <i class="fab fa-whatsapp"></i> Reservar vacante
+          </a>
+          <a href="planes.html" class="btn btn-outline">Ver Planes</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="logo/2.png" alt="Círculo Mágico">
+          </a>
+          <p>Escuela y Tienda de Magia e Ilusionismo en Barrio Caballito, Buenos Aires.</p>
+          <div class="footer-socials">
+            <a href="http://www.facebook.com/escuelademagia" target="_blank" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/channel/UCLMX6lHjRY2lW_AGMVo5qDQ" target="_blank" class="social-btn"><i class="fab fa-youtube"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=+5491152638510" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Escuela</h4>
+          <ul>
+            <li><a href="planes.html">Clases Grupales</a></li>
+            <li><a href="planes.html">Clases Particulares</a></li>
+            <li><a href="planes.html">Videocurso Online</a></li>
+            <li><a href="contacto.html">Minimagos</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Sitio</h4>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="galeria.html">Galería</a></li>
+            <li><a href="planes.html">Planes</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="https://api.whatsapp.com/send?phone=+5491152638510" target="_blank">WhatsApp</a></li>
+            <li><a href="http://www.facebook.com/escuelademagia" target="_blank">Facebook</a></li>
+            <li><a href="https://www.youtube.com/channel/UCLMX6lHjRY2lW_AGMVo5qDQ" target="_blank">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Círculo Mágico — Escuela de Magia e Ilusionismo</p>
+        <p>Felipe Vallese 1387, Caballito, CABA</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="wa-float">
+    <div class="wa-tooltip">¡Escribinos!</div>
+    <a href="https://api.whatsapp.com/send?phone=+5491152638510" target="_blank" class="wa-btn">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.3.0/js/glightbox.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

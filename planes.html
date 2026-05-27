@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planes y Precios — Círculo Mágico</title>
+  <meta name="description" content="Planes de clases de magia en Círculo Mágico. Clases grupales, particulares y videocurso online. Felipe Vallese 1387, Caballito, CABA.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+  <header id="header" class="scrolled">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="logo/2.png" alt="Círculo Mágico">
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="index.html#cursos">Cursos</a>
+        <a href="galeria.html">Galería</a>
+        <a href="planes.html" class="active">Planes</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Inicio</a>
+    <a href="index.html#cursos">Cursos</a>
+    <a href="galeria.html">Galería</a>
+    <a href="planes.html">Planes</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="breadcrumb">
+          <a href="index.html">Inicio</a>
+          <span class="sep">›</span>
+          <span class="current">Planes</span>
+        </div>
+        <div class="tag">Precios</div>
+        <h1>Planes de <span class="gold">Magia</span></h1>
+        <div class="divider"></div>
+        <p>Elegí la modalidad que mejor se adapte a tu estilo y objetivos. Al finalizar el pago envianos el comprobante al WhatsApp y preparate para sumergirte en el mundo de la magia.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANES COMPLETOS -->
+  <section class="section planes-page">
+    <div class="container">
+
+      <div class="planes-grid">
+
+        <!-- Particulares -->
+        <div class="plan-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="plan-header">
+            <h3>Clases Particulares</h3>
+            <div class="plan-unavailable">Consultar disponibilidad</div>
+          </div>
+          <div class="plan-body">
+            <ul class="plan-features">
+              <li><i class="fas fa-check"></i> <span>4 Clases Mensuales</span></li>
+              <li><i class="fas fa-check"></i> <span>1 Hora Semanal</span></li>
+              <li><i class="fas fa-check"></i> <span>Apuntes de Magia exclusivos</span></li>
+              <li><i class="fas fa-check"></i> <span><strong>Atención 100% personalizada</strong></span></li>
+              <li><i class="fas fa-check"></i> <span>Programa adaptado a tus intereses</span></li>
+              <li><i class="fas fa-check"></i> <span>Horario a convenir</span></li>
+            </ul>
+          </div>
+          <div class="plan-footer">
+            <a href="https://api.whatsapp.com/send?phone=+5491152638510&text=Hola!%20Me%20interesar%C3%ADa%20consultar%20sobre%20clases%20particulares%20de%20magia!" target="_blank" class="btn btn-outline">
+              <i class="fab fa-whatsapp"></i> Consultar precio
+            </a>
+          </div>
+        </div>
+
+        <!-- Grupales — destacado -->
+        <div class="plan-card featured" data-aos="fade-up" data-aos-delay="100">
+          <div class="plan-badge">Más popular</div>
+          <div class="plan-header">
+            <h3>Clases Grupales</h3>
+            <div class="plan-price">
+              <span class="currency">$</span>
+              <span class="amount">27.500</span>
+              <span class="period">/ mes</span>
+            </div>
+          </div>
+          <div class="plan-body">
+            <ul class="plan-features">
+              <li><i class="fas fa-check"></i> <span>4 Clases Mensuales</span></li>
+              <li><i class="fas fa-check"></i> <span>1:30 Hs Semanal</span></li>
+              <li><i class="fas fa-check"></i> <span>Apuntes de Magia exclusivos</span></li>
+              <li><i class="fas fa-check"></i> <span><strong>Máximo 10 alumnos</strong></span></li>
+              <li><i class="fas fa-check"></i> <span>Magia de cerca, salón y escena</span></li>
+              <li><i class="fas fa-check"></i> <span>Diploma al finalizar cada nivel</span></li>
+            </ul>
+          </div>
+          <div class="plan-footer">
+            <a href="https://api.whatsapp.com/send?phone=+5491152638510&text=Hola!%20Me%20interesar%C3%ADa%20reservar%20una%20vacante%20para%20el%20curso%20presencial%20de%20Magia!" target="_blank" class="btn btn-gold">
+              <i class="fab fa-whatsapp"></i> ¡Reservar vacante!
+            </a>
+          </div>
+        </div>
+
+        <!-- Videocurso -->
+        <div class="plan-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="plan-header">
+            <h3>Videocurso Online</h3>
+            <div class="plan-price">
+              <span class="currency">$</span>
+              <span class="amount">50.000</span>
+              <span class="period">pago único</span>
+            </div>
+          </div>
+          <div class="plan-body">
+            <ul class="plan-features">
+              <li><i class="fas fa-check"></i> <span>Desde tu PC, Tablet o Celular</span></li>
+              <li><i class="fas fa-check"></i> <span><strong>Más de 100 Videos</strong></span></li>
+              <li><i class="fas fa-check"></i> <span>Filmación multiángulo</span></li>
+              <li><i class="fas fa-check"></i> <span><strong>Acceso de por Vida</strong></span></li>
+              <li><i class="fas fa-check"></i> <span>Estudiá a tu ritmo</span></li>
+              <li><i class="fas fa-check"></i> <span>Sin fecha de vencimiento</span></li>
+            </ul>
+          </div>
+          <div class="plan-footer">
+            <a href="https://api.whatsapp.com/send?phone=+5491152638510&text=Hola!%20Me%20interesar%C3%ADa%20conseguir%20el%20videocurso%20de%20magia!" target="_blank" class="btn btn-outline">
+              <i class="fab fa-whatsapp"></i> Lo Quiero
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Nota informativa -->
+      <div class="planes-note" data-aos="fade-up">
+        <i class="fas fa-info-circle"></i>
+        <div>
+          <strong style="color: var(--text); display: block; margin-bottom: 4px;">¿Cómo inscribirse?</strong>
+          Escribinos por WhatsApp al <a href="https://api.whatsapp.com/send?phone=+5491152638510" target="_blank" style="color: var(--red);">+54 9 11 5263-8510</a>.
+          Te confirmamos disponibilidad, horarios y te indicamos cómo realizar el pago. Al confirmar el pago envianos el comprobante y ¡listo, ya sos parte del Círculo Mágico!
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MINIMAGOS -->
+  <section class="section" style="background: var(--bg-2); border-top: 1px solid var(--border);">
+    <div class="container">
+      <div class="about-grid" style="gap: 56px;">
+
+        <div data-aos="fade-right">
+          <div class="tag">Para los más chicos</div>
+          <h2 class="section-title"><span class="gold">Minimagos</span></h2>
+          <div class="divider"></div>
+          <p style="color: var(--text-muted); margin-bottom: 20px;">
+            Clases especiales diseñadas para niños desde los 8 años. Un espacio donde los más chicos desarrollan
+            creatividad, confianza en sí mismos, coordinación y presencia escénica a través de la magia.
+          </p>
+          <p style="color: var(--text-muted); margin-bottom: 32px;">
+            Aprendizaje lúdico, grupos reducidos y docentes con experiencia en educación infantil.
+            ¡El regalo perfecto para el niño curioso y creativo!
+          </p>
+          <div class="about-features">
+            <div class="about-feat">
+              <i class="fas fa-check-circle"></i>
+              <div>
+                <strong>Desde los 8 años</strong>
+                <p>Adaptado a cada rango etario.</p>
+              </div>
+            </div>
+            <div class="about-feat">
+              <i class="fas fa-check-circle"></i>
+              <div>
+                <strong>Grupos reducidos</strong>
+                <p>Atención personalizada para cada alumno.</p>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top: 32px;">
+            <a href="https://api.whatsapp.com/send?phone=+5491152638510&text=Hola!%20Me%20interesar%C3%ADa%20informaci%C3%B3n%20sobre%20las%20clases%20de%20Minimagos!" target="_blank" class="btn btn-gold">
+              <i class="fab fa-whatsapp"></i> Consultar Minimagos
+            </a>
+          </div>
+        </div>
+
+        <div class="about-img-wrap" data-aos="fade-left">
+          <img src="fotos/galeria/aprendermagia14.jpg" alt="Minimagos - Clases para niños" class="about-img">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head center">
+        <div class="tag">Preguntas frecuentes</div>
+        <h2 class="section-title">¿Tenés <span class="gold">dudas?</span></h2>
+        <div class="divider"></div>
+      </div>
+
+      <div style="max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px;">
+
+        <div class="feature-card" data-aos="fade-up">
+          <h3 style="font-size: 0.95rem; margin-bottom: 10px; font-family: 'Poppins', sans-serif; font-weight: 600;">¿Necesito experiencia previa para inscribirme?</h3>
+          <p style="color: var(--text-muted); font-size: 0.88rem; margin: 0;">No, para nada. Las clases están diseñadas para principiantes absolutos. Empezamos desde cero y avanzamos a tu ritmo.</p>
+        </div>
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="50">
+          <h3 style="font-size: 0.95rem; margin-bottom: 10px; font-family: 'Poppins', sans-serif; font-weight: 600;">¿Qué tipo de magia se aprende?</h3>
+          <p style="color: var(--text-muted); font-size: 0.88rem; margin: 0;">Magia de cerca (close up), de salón, escena, cartomagia, mentalismo, presentación mágica y técnicas de ilusionismo.</p>
+        </div>
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+          <h3 style="font-size: 0.95rem; margin-bottom: 10px; font-family: 'Poppins', sans-serif; font-weight: 600;">¿Cuándo son los horarios de las clases?</h3>
+          <p style="color: var(--text-muted); font-size: 0.88rem; margin: 0;">Los horarios se coordina por WhatsApp según disponibilidad. Escribinos y te informamos las opciones actuales.</p>
+        </div>
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="150">
+          <h3 style="font-size: 0.95rem; margin-bottom: 10px; font-family: 'Poppins', sans-serif; font-weight: 600;">¿Dónde son las clases presenciales?</h3>
+          <p style="color: var(--text-muted); font-size: 0.88rem; margin: 0;">En nuestro espacio en Felipe Vallese 1387, Barrio de Caballito, Ciudad Autónoma de Buenos Aires.</p>
+        </div>
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+          <h3 style="font-size: 0.95rem; margin-bottom: 10px; font-family: 'Poppins', sans-serif; font-weight: 600;">¿Los precios se actualizan?</h3>
+          <p style="color: var(--text-muted); font-size: 0.88rem; margin: 0;">Los valores indicados pueden estar desactualizados. Te recomendamos consultar por WhatsApp el precio vigente al momento de inscribirte.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" class="section">
+    <div class="container">
+      <div class="cta-inner" data-aos="fade-up">
+        <div class="tag">¿Listo para empezar?</div>
+        <h2>Reservá tu lugar <span class="gold">hoy</span></h2>
+        <p>Los cupos son limitados. Escribinos y empezá tu camino en el mundo de la magia.</p>
+        <div class="cta-btns">
+          <a href="https://api.whatsapp.com/send?phone=+5491152638510&text=Hola!%20Me%20interesar%C3%ADa%20reservar%20una%20vacante%20para%20el%20curso%20de%20Magia!" target="_blank" class="btn btn-gold">
+            <i class="fab fa-whatsapp"></i> Escribir por WhatsApp
+          </a>
+          <a href="contacto.html" class="btn btn-outline">Otras formas de contacto</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="logo/2.png" alt="Círculo Mágico">
+          </a>
+          <p>Escuela y Tienda de Magia e Ilusionismo en Barrio Caballito, Buenos Aires.</p>
+          <div class="footer-socials">
+            <a href="http://www.facebook.com/escuelademagia" target="_blank" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/channel/UCLMX6lHjRY2lW_AGMVo5qDQ" target="_blank" class="social-btn"><i class="fab fa-youtube"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=+5491152638510" target="_blank" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Escuela</h4>
+          <ul>
+            <li><a href="planes.html">Clases Grupales</a></li>
+            <li><a href="planes.html">Clases Particulares</a></li>
+            <li><a href="planes.html">Videocurso Online</a></li>
+            <li><a href="contacto.html">Minimagos</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Sitio</h4>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="galeria.html">Galería</a></li>
+            <li><a href="planes.html">Planes</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="https://api.whatsapp.com/send?phone=+5491152638510" target="_blank">WhatsApp</a></li>
+            <li><a href="http://www.facebook.com/escuelademagia" target="_blank">Facebook</a></li>
+            <li><a href="https://www.youtube.com/channel/UCLMX6lHjRY2lW_AGMVo5qDQ" target="_blank">YouTube</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Círculo Mágico — Escuela de Magia e Ilusionismo</p>
+        <p>Felipe Vallese 1387, Caballito, CABA</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="wa-float">
+    <div class="wa-tooltip">¡Escribinos!</div>
+    <a href="https://api.whatsapp.com/send?phone=+5491152638510" target="_blank" class="wa-btn">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

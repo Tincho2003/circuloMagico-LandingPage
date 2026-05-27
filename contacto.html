@@ -54,7 +54,7 @@
         <div class="tag">Hablemos</div>
         <h1>¿Cómo podemos <span class="gold">ayudarte?</span></h1>
         <div class="divider"></div>
-        <p>Escribinos por WhatsApp o completá el formulario y te respondemos a la brevedad.</p>
+        <p>Escribinos por WhatsApp — es la forma más rápida — o completá el formulario y te respondemos a la brevedad.</p>
       </div>
     </div>
   </section>
@@ -122,33 +122,51 @@
 
         <!-- Mapa + formulario -->
         <div data-aos="fade-left">
+
           <div class="map-embed">
-          <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-58.4661%2C-34.6242%2C-58.4421%2C-34.6082&amp;layer=mapnik&amp;marker=-34.6162346%2C-58.4541391" loading="lazy" title="Ubicación Círculo Mágico"></iframe>
-        </div>
-              <div class="form-group">
-                <label for="interes">Me interesa</label>
-                <select id="interes" name="interes" class="form-control">
-                  <option value="">— Seleccioná una opción —</option>
-                  <option value="grupales">Clases Grupales Presenciales</option>
-                  <option value="particulares">Clases Particulares</option>
-                  <option value="videocurso">Videocurso Online</option>
-                  <option value="minimagos">Minimagos (niños)</option>
-                  <option value="tienda">Tienda de Magia</option>
-                  <option value="otro">Otro</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="mensaje">Mensaje</label>
-                <textarea id="mensaje" name="mensaje" class="form-control" placeholder="¿En qué te podemos ayudar?" rows="4"></textarea>
-              </div>
-              <button type="submit" class="btn btn-gold" style="width: 100%; justify-content: center;">
-                <i class="fab fa-whatsapp"></i> Enviar por WhatsApp
-              </button>
-              <p style="font-size: 0.78rem; color: var(--text-muted); text-align: center; margin-top: 12px;">
-                Al enviar, abrirá WhatsApp con tu mensaje pre-cargado.
-              </p>
-            </form>
+            <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-58.4661%2C-34.6242%2C-58.4421%2C-34.6082&amp;layer=mapnik&amp;marker=-34.6162346%2C-58.4541391" loading="lazy" title="Ubicación Círculo Mágico"></iframe>
           </div>
+
+          <form onsubmit="handleSubmit(event)" style="margin-top: 28px;" novalidate>
+
+            <div class="form-row-2col">
+              <div class="form-group" style="margin-bottom: 0;">
+                <label for="nombre">Tu nombre <span style="color: var(--red);">*</span></label>
+                <input type="text" id="nombre" name="nombre" class="form-control" placeholder="¿Cómo te llamás?" required>
+              </div>
+              <div class="form-group" style="margin-bottom: 0;">
+                <label for="telefono">Teléfono <span style="color: var(--text-muted); font-weight: 400;">(opcional)</span></label>
+                <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="11 5263-8510">
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-top: 16px;">
+              <label for="interes">Me interesa</label>
+              <select id="interes" name="interes" class="form-control">
+                <option value="">— Seleccioná una opción —</option>
+                <option value="grupales">Clases Grupales Presenciales</option>
+                <option value="particulares">Clases Particulares</option>
+                <option value="videocurso">Videocurso Online</option>
+                <option value="minimagos">Minimagos (niños)</option>
+                <option value="tienda">Tienda de Magia</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" class="form-control" placeholder="¿En qué te podemos ayudar?" rows="4"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-gold" style="width: 100%; justify-content: center; font-size: 1rem; padding: 15px 30px;">
+              <i class="fab fa-whatsapp"></i> Enviar por WhatsApp
+            </button>
+            <p style="font-size: 0.78rem; color: var(--text-muted); text-align: center; margin-top: 12px;">
+              Al enviar, se abrirá WhatsApp con tu mensaje pre-cargado.
+            </p>
+
+          </form>
+
         </div>
 
       </div>
